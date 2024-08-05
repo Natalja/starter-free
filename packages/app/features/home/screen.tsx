@@ -66,7 +66,6 @@ function SheetDemo() {
   const toast = useToastController()
 
   const [open, setOpen] = useState(false)
-  const [position, setPosition] = useState(0)
 
   return (
     <>
@@ -81,40 +80,23 @@ function SheetDemo() {
         animation="medium"
         open={open}
         onOpenChange={setOpen}
-        snapPoints={[80]}
-        position={position}
-        onPositionChange={setPosition}
-        dismissOnSnapToBottom
+        snapPoints={[80,50]}
+        defaultPosition={1}
       >
         <Sheet.Overlay animation="lazy" enterStyle={{ opacity: 0 }} exitStyle={{ opacity: 0 }} />
-        <Sheet.Handle bg="$gray8" />
+        {/*<Sheet.Handle bg="$gray8" />*/}
         <Sheet.Frame ai="center" jc="center" gap="$10" bg="$color2">
-          <XStack gap="$2">
-            <Paragraph ta="center">Made by</Paragraph>
-            <Anchor col="$blue10" href="https://twitter.com/natebirdman" target="_blank">
-              @natebirdman,
-            </Anchor>
-            <Anchor
-              color="$purple10"
-              href="https://github.com/tamagui/tamagui"
-              target="_blank"
-              rel="noreferrer"
-            >
-              give it a ⭐️
-            </Anchor>
-          </XStack>
+          <Sheet.ScrollView>
+            <Paragraph ta="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla purus ut tempor luctus. Duis vitae tincidunt elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vitae nunc nec nisl tristique auctor vel ac justo. Etiam ut maximus risus. Morbi quis risus ac sem porttitor finibus. Donec iaculis risus sit amet molestie dignissim. Donec at orci at velit pellentesque consequat. Vestibulum ultrices risus et neque sollicitudin fermentum ut vel ante.
 
-          <Button
-            size="$6"
-            circular
-            icon={ChevronDown}
-            onPress={() => {
-              setOpen(false)
-              toast.show('Sheet closed!', {
-                message: 'Just showing how toast works...',
-              })
-            }}
-          />
+              Curabitur nec vestibulum magna. Mauris at velit vitae lectus imperdiet convallis. Proin nec tempus turpis, sed semper erat. Curabitur ac rhoncus libero, vel laoreet lacus. Cras vehicula fermentum justo sed porttitor. Phasellus sollicitudin egestas enim, ac molestie nunc vestibulum vitae. Curabitur purus est, rutrum pretium congue quis, fringilla sit amet sem. Vivamus eu augue ante. Integer velit velit, pharetra ut porttitor eget, porttitor eget neque. Phasellus id placerat eros.
+
+              Donec finibus enim dictum feugiat tempus. Fusce non felis tempus, dignissim erat in, luctus lacus. Ut vestibulum bibendum erat eu lobortis. Suspendisse tincidunt odio non mauris placerat lacinia. Maecenas vel posuere risus, et gravida odio. Praesent at elementum eros. Aenean efficitur id metus eget volutpat. Fusce pulvinar ligula eget arcu accumsan rutrum. Quisque sed porttitor augue. Nullam in tincidunt nisl, et condimentum risus.
+
+              Sed at iaculis urna, vel dapibus orci. Curabitur ultricies, ex eu scelerisque malesuada, ante risus pulvinar nisi, et accumsan sapien nisi a felis. Morbi egestas aliquam condimentum. Donec semper ac est vel mattis. Aliquam ultricies sit amet leo sit amet consectetur. Nullam scelerisque et nibh nec maximus. Nulla maximus consectetur est, eget molestie justo eleifend id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed rhoncus pulvinar feugiat.
+
+              Praesent laoreet ex quis elementum tempor. Vivamus mauris nulla, volutpat vitae condimentum quis, consequat eget nisi. Sed sodales tempor orci, quis venenatis ante suscipit id. Mauris a euismod dui. Ut ullamcorper et quam eget dictum. Phasellus placerat lacinia sapien. Nunc luctus magna vitae nibh blandit, non bibendum elit pharetra. Nullam non nibh ac metus euismod sagittis at in ligula. Duis a consequat lectus. Vivamus finibus orci a euismod tincidunt. Donec vel laoreet massa.</Paragraph>
+          </Sheet.ScrollView>
         </Sheet.Frame>
       </Sheet>
     </>
